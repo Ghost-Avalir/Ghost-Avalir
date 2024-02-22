@@ -1,0 +1,85 @@
+# This is a basic workflow to help you get started with Actions
+steps:
+- uses: actions/checkout@v3
+- uses: actions/setup-java@v3
+  with:
+    distribution: 'temurin'
+    java-version: '11'
+- run: java -cp java HelloWorldApp            - Name: Java JDK einrichten
+  verwendet: actions/setup-java@v4.0.0
+  mit:
+    # Die einzurichtende Java-Version. Benötigt eine vollständige oder teilweise Java-Version. Beispiele für unterstützte Syntax finden Sie in der README-Datei
+    Java-Version: # optional
+    # Der Pfad zur Datei „.java-version“. Beispiele für unterstützte Syntax finden Sie in der README-Datei
+    Java-Versionsdatei: # optional
+    # Java-Distribution. Sehen Sie sich die Liste der unterstützten Distributionen in der README-Datei an
+    Verteilung:
+    # Der Pakettyp (jdk, jre, jdk+fx, jre+fx)
+    Java-Paket: # optional, Standard ist JDK
+    # Die Architektur des Pakets (standardmäßig die Architektur des Action Runners)
+    Architektur: # optional
+    # Pfad zum Speicherort des komprimierten JDK
+    jdkFile: # optional
+    # Legen Sie diese Option fest, wenn die Aktion nach der neuesten verfügbaren Version suchen soll, die den Versionsspezifikationen entspricht
+    check-latest: # optional
+    # ID des distributionManagement-Repositorys in der pom.xml-Datei. Der Standardwert ist „github“.
+    Server-ID: # optional, Standard ist Github
+    # Name der Umgebungsvariablen für den Benutzernamen zur Authentifizierung beim Apache Maven-Repository. Der Standardwert ist $GITHUB_ACTOR
+    Server-Benutzername: # optional, Standard ist GITHUB_ACTOR
+    # Name der Umgebungsvariablen für Passwort oder Token zur Authentifizierung beim Apache Maven-Repository. Der Standardwert ist $GITHUB_TOKEN
+    Server-Passwort: # optional, Standard ist GITHUB_TOKEN
+    # Pfad, wohin die Datei „settings.xml“ geschrieben wird. Der Standardwert ist ~/.m2.
+    Einstellungspfad: # optional
+    # Überschreiben Sie die Datei „settings.xml“, falls vorhanden. Der Standardwert ist „true“.
+    overwrite-settings: # optional, Standard ist true
+    # Privater GPG-Schlüssel zum Importieren. Der Standardwert ist eine leere Zeichenfolge.
+    gpg-private-key: # optional
+    # Name der Umgebungsvariablen für die Passphrase des privaten GPG-Schlüssels. Der Standardwert ist $GPG_PASSPHRASE.
+    gpg-passphrase: # optional
+    # Name der Build-Plattform zum Zwischenspeichern von Abhängigkeiten. Es kann „maven“, „gradle“ oder „sbt“ sein.
+    Cache: # optional
+    # Der Pfad zu einer Abhängigkeitsdatei: pom.xml, build.gradle, build.sbt usw. Diese Option kann mit der Option „cache“ verwendet werden. Wenn diese Option weggelassen wird, sucht die Aktion im gesamten Repository nach der Abhängigkeitsdatei. Diese Option unterstützt Platzhalter und eine Liste von Dateinamen zum Zwischenspeichern mehrerer Abhängigkeiten.
+    Cache-Abhängigkeitspfad: # optional
+    # Problemumgehung, um den Jobstatus an den Post-Job-Schritt zu übergeben. Diese Variable ist nicht für die manuelle Einstellung vorgesehen
+    Jobstatus: # optional, Standard ist ${{ job.status }}
+    # Das Token, das zur Authentifizierung beim Abrufen von Versionsmanifesten verwendet wird, die auf github.com gehostet werden, z. B. für den Microsoft Build von OpenJDK. Beim Ausführen dieser Aktion auf github.com ist der Standardwert ausreichend. Bei der Ausführung auf GHES können Sie ein persönliches Zugriffstoken für github.com weitergeben, wenn eine Ratenbegrenzung auftritt.
+    token: # optional, Standard ist ${{ github.server_url == 'https://github.com' && github.token || '' }}
+    # Name der Maven Toolchain-ID, wenn der Standardname „${distribution}_${java-version}“ nicht gewünscht ist. Beispiele für unterstützte Syntax finden Sie in der Datei „Erweiterte Verwendung“.
+    mvn-toolchain-id: # optional
+    # Name des Maven Toolchain-Anbieters, wenn der Standardname „${distribution}“ nicht gewünscht ist. Beispiele für unterstützte Syntax finden Sie in der Datei „Erweiterte Verwendung“.
+    mvn-toolchain-vendor: # optional
+          
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
