@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @Ghost-Avalir
+https://github.com/Ghost-Avalir/Ghost-Avalir.git- 👋 Hi, I’m @Ghost-Avalir
 - 👀 I’m interested in programmieren 
 - 🌱 I’m currently learning
 - 💞️ I’m looking to collaborate on ...
