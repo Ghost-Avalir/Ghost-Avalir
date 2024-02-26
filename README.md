@@ -2,7 +2,7 @@
 - 👀 I’m interested in programmieren 
 - 🌱 I’m currently learning all Programms 
 - 💞️ I’m looking to collaborate on GitHub Teilnehmern 
-- 📫 How to reach me tommyhilfiger.deli1vervy@gmail.com
+- 📫 How to reach me tommyhilfiger.delivervy@gmail.com
 - 😄 Pronouns : ...ich/du
 - ⚡ Fun fact ich habe keine Ahnung vom Programmieren : ...
 
